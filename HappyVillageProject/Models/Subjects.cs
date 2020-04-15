@@ -2,9 +2,9 @@
 
 namespace HappyVillageProject.Models
 {
-    public class Formats
+    public class Subjects
     {
-        public int FormatsId { get; set; }
+        public int SubjectsId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public ICollection<Images> Images { get; set; }

@@ -22,8 +22,9 @@ namespace HappyVillageProject.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Images>>> GetImages()
         {
-            return await _context.Images.ToListAsync();
+            return await _context.Images.Include(i => i.User).ToListAsync();
         }
+     
 
         [HttpPost]
         public async Task<ActionResult<Images>> PostImages(Images Images)

@@ -11,25 +11,30 @@ namespace HappyVillageProject.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class OwnersController : ControllerBase
+    public class SubjectsController : ControllerBase
     {
         private readonly DataBaseContext _context;
-        public OwnersController(DataBaseContext context)
+        public SubjectsController(DataBaseContext context)
         {
             _context = context;
         }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Owners>>> GetOwners()
+        public async Task<ActionResult<IEnumerable<Subjects>>> GetSubjects()
         {
-            return await _context.Owners.ToListAsync();
+            return await _context.Subjects.ToListAsync();
         }
         [HttpPost]
-        public async Task<ActionResult<Owners>> PostOwners(Owners Owners)
+        public async Task<ActionResult<Subjects>> PostSubjects(Subjects Subjects)
         {
-            _context.Owners.Add(Owners);
+            _context.Subjects.Add(Subjects);
             await _context.SaveChangesAsync();
-            return CreatedAtAction("GetOwners", new { id = Owners.OwnersId }, Owners);
+            return CreatedAtAction("GetSubjects", new { id = Subjects.SubjectsId }, Subjects);
         }
+
     }
+   
+    
+
+
 
 }
