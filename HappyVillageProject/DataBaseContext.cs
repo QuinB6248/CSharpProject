@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace HappyVillageProject
 {
-    public class DataBaseContext : IdentityDbContext<AppUser, AppRole, int>
+    /*public class DataBaseContext : IdentityDbContext<AppUser, AppRole, int>
     {
         public DataBaseContext(DbContextOptions<DataBaseContext> options) : base(options)
         {
@@ -19,14 +19,14 @@ namespace HappyVillageProject
         public DbSet<Images> Images { get; set; }
         public DbSet<Subjects> Subjects { get; set; }
        // public DbSet<Owners> Owners { get; set; }
-    }
+    }*/
 }
 
 
 
 
 
-/*public class DataBaseContext : DbContext
+public class DataBaseContext : DbContext
 {
     public DataBaseContext(DbContextOptions<DataBaseContext> options) : base(options)
     {
@@ -35,5 +35,5 @@ namespace HappyVillageProject
 
     public DbSet<Images> Images { get; set; }
     public DbSet<Subjects> Subjects { get; set; }
-    public DbSet<Owners> Owners { get; set; }
-}*/
+    //public DbSet<Owners> Owners { get; set; }
+}

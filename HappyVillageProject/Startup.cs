@@ -2,7 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HappyVillageProject.Data;
+using HappyVillageProject.Libraries.config;
 using HappyVillageProject.Models;
+using HappyVillageProject.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -29,15 +32,18 @@ namespace HappyVillageProject
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddIdentity<AppUser, AppRole>(options =>
-            {
-                options.User.RequireUniqueEmail = true;
-            }).AddEntityFrameworkStores<DataBaseContext>()
+            /* services.AddIdentity<AppUser, AppRole>(options =>
+             {
+                 options.User.RequireUniqueEmail = true;
+             }).AddEntityFrameworkStores<DataBaseContext>()
 
-            .AddDefaultTokenProviders();
+             .AddDefaultTokenProviders();*/
 
+           // services.Configure<DbConfig>(Configuration.GetSection("Db"));
             services.AddDbContext<DataBaseContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
+            services.AddScoped<ImagesService>();
+             services.AddScoped<StoredProcedures>();
+            //services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
             
          
             services.AddControllers().AddNewtonsoftJson(options =>

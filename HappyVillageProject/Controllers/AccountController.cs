@@ -25,7 +25,7 @@ namespace HappyVillageProject.Controllers
             _context = context;
         }
 
-        [HttpGet]
+      /*  [HttpGet]
         public async Task<ActionResult<IEnumerable<AppUser>>> GetAppUser()
         {
             return await _context.Users.ToListAsync();
@@ -39,7 +39,7 @@ namespace HappyVillageProject.Controllers
             return CreatedAtAction("GetAppUser", new { id = AppUser.Id }, AppUser);
         }
 
-       
+       */
 
     }
 }
